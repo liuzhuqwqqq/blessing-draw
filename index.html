@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5cb67">
+  <meta name="description" content="留下一句话，也带走一句属于你的祝福。抽一支今日签，愿好事慢慢发生。">
+  <title>今日一签 · 愿好事慢慢发生</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f5cb67'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-size='23' fill='%23884829'%3E签%3C/text%3E%3C/svg%3E">
+  <style>
+    :root { color-scheme: light; --ink:#593322; --muted:#8b674a; --red:#a23f29; --paper:#fff9e9; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; min-height:100svh; background:#f5cb67; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; background:radial-gradient(ellipse at 50% 24%,#ffe6a0 0,transparent 62%); }
+    main { position:relative; width:min(100%,480px); margin:auto; padding:30px 24px 24px; text-align:center; }
+    .edition { display:flex; align-items:center; justify-content:space-between; font-size:11px; letter-spacing:2px; color:#805637; padding-bottom:18px; border-bottom:1px solid #a7713736; }
+    header { margin:26px 0 24px; }
+    .eyebrow { font-size:11px; letter-spacing:5px; color:var(--red); margin:0 0 10px; }
+    h1 { font-family:"Songti SC","STSong",serif; font-size:clamp(36px,9vw,44px); font-weight:500; letter-spacing:7px; margin:0 0 14px; }
+    .intro { font-size:14px; line-height:1.9; margin:0; color:#79553b; }
+    .stage { position:relative; padding:0 20px 15px; }
+    .ticket { position:relative; margin:auto; width:min(100%,290px); min-height:330px; background:var(--paper); border:1px solid #c9944b; border-radius:90px 90px 4px 4px; padding:32px 25px 23px; box-shadow:0 12px 0 -6px #e4ad4d,0 20px 35px #85531820; display:flex; flex-direction:column; align-items:center; }
+    .ticket::before { content:""; position:absolute; inset:9px; border:1px solid #c9944b55; border-radius:82px 82px 0 0; pointer-events:none; }
+    .mark { font-family:"Songti SC","STSong",serif; font-size:12px; letter-spacing:3px; color:var(--red); margin:0 0 20px; }
+    .label { font-size:10px; letter-spacing:3px; color:var(--muted); margin:0 0 9px; }
+    #keyword { font-family:"Songti SC","STSong",serif; font-weight:500; font-size:42px; letter-spacing:9px; padding-left:9px; margin:0; }
+    .rule { width:30px; height:1px; background:#c9944b; margin:19px 0 17px; }
+    #message { font-family:"Songti SC","STSong",serif; font-size:20px; line-height:1.75; margin:0; white-space:pre-line; min-height:70px; }
+    #number { margin:auto 0 0; padding-top:22px; color:#a1805e; font-size:10px; letter-spacing:2px; }
+    .ticket.drawing { animation:sway .18s ease-in-out 5; }
+    .ticket.reveal { animation:reveal .5s ease both; }
+    @keyframes sway { 0%,100% { transform:rotate(-2deg) translateY(0); } 50% { transform:rotate(2deg) translateY(-4px); } }
+    @keyframes reveal { from { opacity:.4; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+    button { display:block; width:min(100%,290px); min-height:54px; border:0; border-radius:5px; background:var(--red); color:#fff6dc; font:500 16px inherit; font-family:inherit; font-size:16px; letter-spacing:3px; margin:24px auto 0; padding:15px 20px; cursor:pointer; box-shadow:0 4px 0 #823523; transition:background .2s,transform .2s; touch-action:manipulation; }
+    button:hover { background:#913724; }
+    button:active { transform:translateY(2px); box-shadow:0 2px 0 #823523; }
+    button:focus-visible { outline:3px solid #593322; outline-offset:5px; }
+    button:disabled { cursor:wait; opacity:.75; }
+    .hint { margin:16px 0 0; font-size:11px; letter-spacing:1px; color:#8b674a; }
+    footer { margin:27px 0 0; font-family:"Songti SC","STSong",serif; font-size:12px; letter-spacing:2px; color:#805637; }
+    @media (max-width:360px) { main { padding:20px 16px; } header { margin:20px 0; } .stage { padding:0 8px 12px; } .ticket { min-height:315px; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before { animation:none !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="edition"><span>一份小小的祝福</span><span>中秋 · 好时节</span></div>
+    <header>
+      <p class="eyebrow">愿好事慢慢发生</p>
+      <h1>今日一签</h1>
+      <p class="intro">留下一句话之后<br>也带走一句属于你的祝福</p>
+    </header>
+    <div class="stage">
+      <section class="ticket" id="ticket" aria-label="祝福签">
+        <p class="mark" aria-hidden="true">✦ 万事可期 ✦</p>
+        <div id="result" role="status" aria-live="polite" aria-atomic="true">
+          <p class="label" id="label">给此刻的你</p>
+          <h2 id="keyword">待启</h2>
+          <div class="rule" aria-hidden="true"></div>
+          <p id="message">把心愿轻轻放好\n让一份祝福与你相遇</p>
+          <p id="number">三十份祝福 · 一份送给你</p>
+        </div>
+      </section>
+    </div>
+    <button id="draw" type="button">抽一支签</button>
+    <p class="hint">停一停，给自己一个温柔的瞬间</p>
+    <footer>月有圆时，人有好事。</footer>
+  </main>
+  <script>
+    // 修改这里的关键词和祝福语即可；\n 表示换行。
+    const blessings = [
+      { keyword:"生长", message:"不必急着抵达\n你正在成为\n更好的自己" },
+      { keyword:"回响", message:"愿你认真种下的期待\n在某一天\n收到温柔的回响" },
+      { keyword:"好事", message:"平凡的日子里\n也藏着\n向你走来的好事" },
+      { keyword:"从容", message:"慢慢来\n属于你的花期\n不必与谁相同" },
+      { keyword:"热爱", message:"愿你眼里有光\n心里有热爱\n脚下有远方" },
+      { keyword:"晴天", message:"愿今天的你\n遇见一点小惊喜\n和一片好晴天" },
+      { keyword:"勇气", message:"哪怕只向前一步\n也是你\n勇敢的证明" },
+      { keyword:"相逢", message:"愿你遇见的人\n懂你的认真\n也珍惜你的温柔" },
+      { keyword:"答案", message:"暂时没有答案\n也没有关系\n路会慢慢清晰" },
+      { keyword:"自在", message:"不必事事满分\n今天也可以\n做轻松一点的自己" },
+      { keyword:"圆满", message:"愿月光照见心愿\n愿你与牵挂的人\n共享此刻的圆满" },
+      { keyword:"微光", message:"你身上那些小小的光\n也曾照亮\n别人的一天" },
+      { keyword:"启程", message:"新的可能\n也许就藏在\n你愿意试一试的今天" },
+      { keyword:"安然", message:"愿忙碌有收获\n休息无愧疚\n心中常安然" },
+      { keyword:"惊喜", message:"愿寻常的一天\n忽然开出\n一朵惊喜" },
+      { keyword:"笃定", message:"按自己的节奏走\n每一个认真脚印\n都算数" },
+      { keyword:"温柔", message:"把留给别人的温柔\n也分一点\n给自己" },
+      { keyword:"丰盈", message:"愿你的生活\n有书可读，有人可念\n有小事值得欢喜" },
+      { keyword:"休憩", message:"累了就歇一歇\n你不必一直发光\n也值得被珍惜" },
+      { keyword:"信心", message:"那些悄悄积攒的努力\n正在成为\n你的底气" },
+      { keyword:"团圆", message:"愿一轮好月\n把想念送到\n你牵挂的人身边" },
+      { keyword:"清欢", message:"一顿好饭，一阵晚风\n愿小小的快乐\n常常找到你" },
+      { keyword:"向前", message:"过去的就轻轻放下\n带着新的自己\n继续向前" },
+      { keyword:"知己", message:"愿你的话有人听\n你的心事\n有人温柔接住" },
+      { keyword:"绽放", message:"不必成为别人的花\n你自有\n独一份的芬芳" },
+      { keyword:"希望", message:"给明天留一点期待\n也许新的风景\n就在下一页" },
+      { keyword:"珍重", message:"愿你照顾好自己\n吃好每一餐\n睡好每一晚" },
+      { keyword:"收获", message:"愿你付出的认真\n慢慢长成\n心中期待的模样" },
+      { keyword:"欢喜", message:"愿你在赶路的间隙\n也记得抬头\n看看沿途的美好" },
+      { keyword:"可期", message:"此刻或许平凡\n未来仍有\n许多值得期待" }
+    ];
+    const button = document.getElementById("draw");
+    const ticket = document.getElementById("ticket");
+    let previous = -1;
+    button.addEventListener("click", () => {
+      if (button.disabled) return;
+      button.disabled = true;
+      button.textContent = "祝福正在赶来…";
+      ticket.classList.remove("reveal");
+      ticket.classList.add("drawing");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.setTimeout(() => {
+        // 相邻两次不重复；新增祝福后，无须改这里。
+        let index = Math.floor(Math.random() * blessings.length);
+        if (blessings.length > 1 && previous >= 0) {
+          index = Math.floor(Math.random() * (blessings.length - 1));
+          if (index >= previous) index++;
+        }
+        previous = index;
+        document.getElementById("label").textContent = "今日关键词";
+        document.getElementById("keyword").textContent = blessings[index].keyword;
+        document.getElementById("message").textContent = blessings[index].message;
+        document.getElementById("number").textContent = `第 ${String(index + 1).padStart(2,"0")} 签 · 赠予此刻的你`;
+        ticket.classList.remove("drawing");
+        ticket.classList.add("reveal");
+        button.textContent = "再抽一支签";
+        button.disabled = false;
+      }, reducedMotion ? 0 : 900);
+    });
+  </script>
+</body>
+</html>
